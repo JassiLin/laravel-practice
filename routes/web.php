@@ -44,3 +44,5 @@ Route::put('products/{product}', function() {
 Route::delete('products/{product}',function() {
     return  response()->json(null, 204);
 });
+
+Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
