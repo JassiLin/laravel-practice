@@ -16,6 +16,10 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmailContrac
         'name', 'phone', 'email', 'password', 'introduction', 'avatar', 'weixin_openid', 'weixin_unionid'
     ];
 
+    protected $hidden = [
+        'password', 'remember_token', 'weixin_openid', 'weixin_unionid'
+    ];
+
     public function getJWTIdentifier()
     {
         return $this->getKey();
@@ -26,7 +30,10 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmailContrac
         return [];
     }
 
-    protected $hidden = [
-        'password', 'remember_token', 'weixin_openid', 'weixin_unionid'
-    ];
+    public function topics()
+    {
+        return $this->hasMany(Topic::class);
+    }
+
+
 }
