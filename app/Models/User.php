@@ -15,7 +15,7 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmailContrac
 
     use HasRoles;
     use MustVerifyEmailTrait;
-    // use Traits\ActiveUserHelper;
+    use Traits\ActiveUserHelper;
     // use Traits\LastActivedAtHelper;
 
     use Notifiable {
