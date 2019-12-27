@@ -13,7 +13,7 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable implements JWTSubject, MustVerifyEmailContract
 {
 
-    // use HasRoles;
+    use HasRoles;
     use MustVerifyEmailTrait;
     // use Traits\ActiveUserHelper;
     // use Traits\LastActivedAtHelper;
@@ -35,7 +35,8 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmailContrac
     }
 
     protected $fillable = [
-        'name', 'phone', 'email', 'password', 'introduction', 'avatar', 'weixin_openid', 'weixin_unionid'
+        'name', 'phone', 'email', 'password', 'introduction', 'avatar',
+        'weixin_openid', 'weixin_unionid', 'registration_id'
     ];
 
     protected $hidden = [
